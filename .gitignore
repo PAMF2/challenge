@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# ChromaDB
+chroma_db/
+
+# Embeddings Cache (arquivos grandes)
+embeddings_cache/
+*.npy
+*.pkl
+
+# Data files
+*.csv
+!companies.csv.zip
+!incentives.csv.zip
+companies.csv/
+incentives.csv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+config.env
+
+# PowerShell scripts (mantém apenas os essenciais)
+descobrir_senha.ps1
+testar_senhas.ps1
+testar_conexao.ps1
+1_resetar_senha.ps1
+2_restaurar_seguranca.ps1
+
+# Test files
+test_*.py
+debug_*.py
+check_*.py
+*_test.py
+
+# Temporary files
+*.tmp
+*.bak
+~*
+
+# Arquivos com possíveis secrets
+.docs/
+*DOCUMENTATION*.md
