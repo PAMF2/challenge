@@ -186,12 +186,30 @@ DATABASE_URL=postgresql://postgres:senha@localhost:5433/incentivos_db
 ```powershell
 # Importar dados CSV para PostgreSQL
 python database/import_data.py
+```
 
-# Indexar dados no RAG (ChromaDB)
+### 4. **Gerar Cache de Embeddings (OBRIGATÓRIO)** ⚡
+**IMPORTANTE:** Este passo é essencial para o funcionamento do sistema RAG!
+
+```powershell
+# Gerar cache de embeddings para 250k empresas (~5-10 minutos)
+python precompute_embeddings.py
+```
+
+Este script vai criar a pasta `embeddings_cache/` com:
+- `company_embeddings.npy` (366 MB) - Embeddings de todas as empresas
+- `company_ids.npy` - IDs mapeados
+- `id_to_index.pkl` - Índice de mapeamento
+
+**Nota:** O cache precisa ser gerado apenas **uma vez**. Depois disso, as buscas serão instantâneas (9400x mais rápidas)!
+
+### 5. **Indexar Dados no RAG**
+```powershell
+# Indexar incentivos, empresas e matches no ChromaDB
 python initialize_rag.py
 ```
 
-### 4. **Executar Dashboard**
+### 6. **Executar Dashboard**
 ```powershell
 streamlit run streamlit_app.py
 ```
